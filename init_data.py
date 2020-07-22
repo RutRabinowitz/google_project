@@ -77,7 +77,6 @@ def insert_file(file_name, trie_data, sentence_index):
                 sentence_index = sentence_index + 1
                 data_to_json_file[sentence_index] = line[:-1]
                 trie_data = insert_line(trie_data, line, sentence_index)
-
         with open('sentences.json', 'w') as sentences_file:
             json.dump(data_to_json_file, sentences_file)
 
@@ -101,7 +100,7 @@ def init():
     for subdir in subdirectories:
         files = os.walk(subdir).__next__()[2]
         sentence_index, trie_data = insert_sub_dir(files, sentence_index, trie_data)
-
+    print(trie_data['t']['h']['i']['s'])
     with open('trie_data.json', 'w') as trie_file:
         json.dump(trie_data, trie_file)
 
