@@ -4,6 +4,22 @@ with open('trie_data.json', 'r') as trie_data:
     trie_data = json.load(trie_data)
 
 
+def is_seq_in_trie(chr1, chr2, chr3, chr4):
+    if chr1 in trie_data:
+        if chr2 in trie_data[chr1]:
+            if chr3 in trie_data[chr1][chr2]:
+                if chr4 in trie_data[chr1][chr2][chr3]:
+                    return trie_data[chr1][chr2][chr3][chr4]
+                else:
+                    return []
+            else:
+                return []
+        else:
+            return []
+    else:
+        return []
+
+
 def for_for_for_for():
     res = []
     for chr1 in trie_data:
@@ -110,3 +126,5 @@ def if_if_if_for(chr1, chr2, chr3):
                     if len(res) >= 5:
                         return res
     return res
+
+

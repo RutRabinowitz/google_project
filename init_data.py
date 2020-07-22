@@ -95,7 +95,6 @@ def init():
 
     with open('sentences.json', 'w') as sentences_file:
         json.dump(data_to_json_file, sentences_file)
-        print(data_to_json_file)
 
 
 init()
