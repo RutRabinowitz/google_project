@@ -32,7 +32,13 @@ def get_text_by_idx(idx_list, user_text):
         sentences = json.load(sentences_file)
         for idx in idx_list:
             sentence = sentences[str(idx[0])]
-            res.append(AutoCompleteData(sentence, sentence, (sentence.lower()).find(user_text), len(user_text) * 2))
+            if len(idx) == 4:
+                re_text = user_text[:idx[3]] + idx[2] + user_text[idx[3] + 1:]
+                res.append(AutoCompleteData(sentence, sentence, (sentence.lower()).find(re_text),
+                                            len(user_text) * 2 - idx[1]))
+            else:
+                res.append(AutoCompleteData(sentence, sentence, (sentence.lower()).find(user_text),
+                                            len(user_text) * 2 - idx[1]))
     return res
 
 

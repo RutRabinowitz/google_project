@@ -128,3 +128,13 @@ def if_if_if_for(chr1, chr2, chr3):
     return res
 
 
+def if_if_for_if(chr1, chr2, chr4):
+    res = []
+    if chr1 in trie_data:
+        if chr2 in trie_data[chr1]:
+            for chr3 in trie_data[chr1][chr2]:
+                if chr4 in trie_data[chr1][chr2][chr3]:
+                    res += trie_data[chr1][chr2][chr3][chr4]
+                    if len(res) >= 5:
+                        return res
+    return res
