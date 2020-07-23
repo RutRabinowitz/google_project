@@ -18,12 +18,10 @@ def match_3_char(user_text):
                  [for_if_if_for, 4, user_text[1], user_text[2]]]
     idx_list = [[x, 0] for x in if_if_if_for(user_text[0], user_text[1], user_text[2])]
 
-    if len(idx_list) >= 5:
-        return idx_list
     for func in func_list:
-        idx_list += match(func[0], func[1], func[2], func[3])
         if len(idx_list) >= 5:
             return idx_list
+        idx_list += match(func[0], func[1], func[2], func[3])
 
     idx_list += [[x[0], 10] for x in match_2_char(user_text[1:]) if x[1] == 0]
     return idx_list
